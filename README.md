@@ -2,6 +2,15 @@
 ---
 
 ```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+---
+```
 dependencies {
 	        implementation 'com.github.CodyyAndroid:DeviceUtils:0.0.1'
 	}
