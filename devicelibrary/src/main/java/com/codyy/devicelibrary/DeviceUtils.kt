@@ -59,6 +59,7 @@ class DeviceUtils {
          *
          * @return `true`: yes<br></br>`false`: no
          */
+        @JvmStatic
         val isDeviceRooted: Boolean
             get() {
                 val su = "su"
@@ -85,6 +86,7 @@ class DeviceUtils {
          *
          * @return the version name of device's system
          */
+        @JvmStatic
         val sdkVersionName: String
             get() = android.os.Build.VERSION.RELEASE
 
@@ -93,6 +95,7 @@ class DeviceUtils {
          *
          * @return version code of device's system
          */
+        @JvmStatic
         val sdkVersionCode: Int
             get() = android.os.Build.VERSION.SDK_INT
 
@@ -103,91 +106,109 @@ class DeviceUtils {
          *
          * @return the manufacturer of the product/hardware
          */
+        @JvmStatic
         val manufacturer: String
             get() = Build.MANUFACTURER
         /**
          * 品牌
          */
+        @JvmStatic
         val brand: String
             get() = Build.BRAND
         /**
          * ID
          */
+        @JvmStatic
         val id: String
             get() = Build.ID
         /**
          * DISPLAY
          */
+        @JvmStatic
         val display: String
             get() = Build.DISPLAY
         /**
          * 产品名
          */
+        @JvmStatic
         val product: String
             get() = Build.PRODUCT
         /**
          * 设备名
          */
+        @JvmStatic
         val device: String
             get() = Build.DEVICE
         /**
          * 硬件
          */
+        @JvmStatic
         val hardware: String
             get() = Build.HARDWARE
         /**
          * 指纹
          */
+        @JvmStatic
         val fingerprint: String
             get() = Build.FINGERPRINT
         /**
          * 串口序列号
          */
+        @JvmStatic
         val serial: String
             get() = Build.SERIAL
         /**
          * 设备版本类型
          */
+        @JvmStatic
         val type: String
             get() = Build.TYPE
         /**
          * 描述build的标签
          */
+        @JvmStatic
         val tags: String
             get() = Build.TAGS
         /**
          * 设备主机地址
          */
+        @JvmStatic
         val host: String
             get() = Build.HOST
         /**
          * 设备用户名
          */
+        @JvmStatic
         val user: String
             get() = Build.USER
         /**
          * 固件开发版本代号
          */
+        @JvmStatic
         val codename: String
             get() = Build.VERSION.CODENAME
         /**
          * 源码控制版本号
          */
+        @JvmStatic
         val incremental: String
             get() = Build.VERSION.INCREMENTAL
         /**
          * 主板
          */
+        @JvmStatic
         val board: String
             get() = Build.BOARD
         /**
          * 主板引导程序
          */
+        @JvmStatic
         val bootload: String
             get() = Build.BOOTLOADER
         /**
          * Build时间
          */
+        @JvmStatic
         val time: String
             get() = SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒", Locale.getDefault()).format(Build.TIME)
 
@@ -198,6 +219,7 @@ class DeviceUtils {
          *
          * @return the model of device
          */
+        @JvmStatic
         val model: String
             get() {
                 var model: String? = Build.MODEL
@@ -211,7 +233,7 @@ class DeviceUtils {
          *
          * @return an ordered list of ABIs supported by this device
          */
-
+        @JvmStatic
         val abis: String
             get() {
                 var str: String? = ""
@@ -236,6 +258,7 @@ class DeviceUtils {
         /**
          * Require Permission {@code <uses-permission android:name="android.permission.READ_PHONE_STATE" />}</p>
          */
+        @JvmStatic
         fun getImei(activity: Activity): String {
             return if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(
                     activity,
@@ -245,7 +268,7 @@ class DeviceUtils {
                 (activity.getSystemService(TELEPHONY_SERVICE) as TelephonyManager).imei
             } else (activity.getSystemService(TELEPHONY_SERVICE) as TelephonyManager).deviceId) else ""
         }
-
+        @JvmStatic
         fun getLine1Number(activity: Activity): String {
             return if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(
                     activity,
@@ -255,7 +278,7 @@ class DeviceUtils {
                 (activity.getSystemService(TELEPHONY_SERVICE) as TelephonyManager).line1Number
             } else (activity.getSystemService(TELEPHONY_SERVICE) as TelephonyManager).deviceId) else ""
         }
-
+        @JvmStatic
         fun getAndroidId(activity: Activity): String {
             return if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(
                     activity,
@@ -269,6 +292,7 @@ class DeviceUtils {
         /**
          * 获取CPU核数
          */
+        @JvmStatic
         fun getCpuProcessors(): Int {
             return Runtime.getRuntime().availableProcessors()
         }
@@ -276,6 +300,7 @@ class DeviceUtils {
         /**
          * 获取CPU位数
          */
+        @JvmStatic
         fun getCpuArchitectureType(): String {
             return if (isLibc64()) "64-Bit" else "32-Bit"
         }
@@ -381,6 +406,7 @@ class DeviceUtils {
         /**
          * 获取最大内存
          */
+        @JvmStatic
         fun getTotalMemory(): String {
             val str1 = "/proc/meminfo"
             var str2: String
@@ -401,6 +427,7 @@ class DeviceUtils {
         /**
          * 获取可用内存
          */
+        @JvmStatic
         fun getAvailMemory(context: Context): String {
             val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
             val mi = ActivityManager.MemoryInfo()
@@ -439,6 +466,7 @@ class DeviceUtils {
         /**
          * 获取屏幕宽度
          */
+        @JvmStatic
         fun getScreenWidth(activity: Activity): String {
             val metric = DisplayMetrics()
             activity.windowManager.defaultDisplay.getMetrics(metric)
@@ -448,6 +476,7 @@ class DeviceUtils {
         /**
          * 获取屏幕高度(height+navigation bar Height)
          */
+        @JvmStatic
         fun getScreenHeight(activity: Activity): String {
             val metric = DisplayMetrics()
             activity.windowManager.defaultDisplay.getMetrics(metric)
@@ -495,6 +524,7 @@ class DeviceUtils {
          * @author youzc@yiche.com
          */
         @SuppressLint("HardwareIds")
+        @JvmStatic
         fun getOperators(activity: Activity): String {
             // 移动设备网络代码（英语：Mobile Network Code，MNC）是与移动设备国家代码（Mobile Country Code，MCC）（也称为“MCC /
             // MNC”）相结合, 例如46000，前三位是MCC，后两位是MNC 获取手机服务商信息

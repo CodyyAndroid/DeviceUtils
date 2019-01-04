@@ -12,7 +12,7 @@ allprojects {
 ---
 ```
 dependencies {
-	        implementation 'com.github.CodyyAndroid:DeviceUtils:0.0.1'
+	        implementation 'com.github.CodyyAndroid:DeviceUtils:0.0.2'
 	}
 ```
 ---
